@@ -27,12 +27,20 @@
 
 declare ARG=0                           # Global variable to hold passed argument from terminal
 declare ERROR_FLAG=0                    # Global variable to hold error flag value
-
+declare SCRIPT_DIRECTORY=0              # Global varible to hold directory path that contain this script
+ 
 #################################################################################################
 #                                           DEPENDANCIES                                        #
 #################################################################################################
 
-source ~/Desktop/ShellScripts/02-Process_Monitor/process_monitor.conf
+# Get the absolute path of the directory that contains this script during execution
+SCRIPT_DIRECTORY=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+
+# Append process_monitor.conf to script directory path
+SCRIPT_DIRECTORY+="/process_monitor.conf"
+
+# Source process_monitor.conf file
+source "${SCRIPT_DIRECTORY}"
 
 #################################################################################################
 #                                          COLOR CODING                                         #
