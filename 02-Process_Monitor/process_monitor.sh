@@ -194,6 +194,9 @@ function processStatistics()
         # exceeded predefined CPU usage threshold
         print "${RED}" "ALERT: CPU usage exceeded ${CPU_ALERT_THRESHOLD}% ! \n"
     fi
+
+    # Print new line on terminal
+    echo ""
 }
 
 # Define a function to kill a process
